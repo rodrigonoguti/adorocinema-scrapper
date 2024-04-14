@@ -4,6 +4,8 @@ const puppeteer = require("puppeteer");
 
 module.exports = async function (fastify, opts) {
   fastify.get('/cinema/:cinema', async function (request, reply) {
+    reply.header('Access-Control-Allow-Origin', '*');
+
     const url = `https://www.adorocinema.com/_/showtimes/theater-${request.params.cinema}/`;
 
     const data = await scrapeData(url);
