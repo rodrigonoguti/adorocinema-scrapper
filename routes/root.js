@@ -9,8 +9,6 @@ module.exports = async function (fastify, opts) {
     const data = await scrapeData(url);
     const response = data ? JSON.parse(data) : { error: "Error scraping data" };
 
-    console.log(response)
-
     const allMovies = response.results;
 
     const movies = allMovies.map((item) => {
