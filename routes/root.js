@@ -36,6 +36,8 @@ module.exports = async function (fastify, opts) {
         showtimes: allShowtimes,
       };
     });
+
+    movies = movies.filter((movie) => movie !== null);
     
     return movies;
   })
