@@ -27,7 +27,7 @@ module.exports = async function (fastify, opts) {
     options: Object.assign({}, opts)
   })
 
-  await fastify.register(cors, {
+  fastify.register(cors, {
     origin: true
   })
 }

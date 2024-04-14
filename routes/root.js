@@ -37,9 +37,9 @@ module.exports = async function (fastify, opts) {
       };
     });
 
-    movies = movies.filter((movie) => movie !== null);
+    const moviesWithShowtimes = movies.filter((movie) => movie !== null);
     
-    return movies;
+    return moviesWithShowtimes;
   })
 }
 
