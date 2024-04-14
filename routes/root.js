@@ -9,6 +9,8 @@ module.exports = async function (fastify, opts) {
     const data = await scrapeData(url);
     const response = data ? JSON.parse(data) : { error: "Error scraping data" };
 
+    console.log(response)
+
     const allMovies = response.results;
 
     const movies = allMovies.map((item) => {
@@ -41,7 +43,7 @@ module.exports = async function (fastify, opts) {
 
 async function scrapeData(url) {
   try {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "networkidle2" }); // Wait until there are no more than 2 network connections for at least 500 ms
     const data = await page.evaluate(() => {
