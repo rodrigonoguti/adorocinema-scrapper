@@ -8,7 +8,7 @@ To start the app in dev mode:
 For production mode:
 `npm start`
 
-Run the test cases:
+Run the test cases (currently not implemented):
 `npm run test`
 
 ## How to use it
